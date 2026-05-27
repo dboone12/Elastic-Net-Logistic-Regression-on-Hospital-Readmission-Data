@@ -1,2 +1,6 @@
 # Elastic-Net-Logistic-Regression-on-Hospital-Readmission-Data
-Using Elastic net Logistic regression to predict less than 30 day hospital readmission 
+Using elastic net logistic regression to predict 30-day hospital readmission.
+The purpose of this project was to build a model identifying features most predictive of hospital readmission within 30 days. The outcome variable was binarized: encounters with readmission within 30 days were coded as 1, while readmissions after 30 days and no readmission were collapsed into 0.
+Exploratory data analysis revealed little distributional difference in continuous variables across outcome classes. The majority of predictors are binary drug indicator variables, most of which were not prescribed to the majority of patients, limiting their discriminating power.
+Three diagnosis code variables (diag_1, diag_2, diag_3) were excluded from this model. These variables contained thousands of unique ICD-9 codes requiring domain-informed grouping to be analytically useful. Their exclusion represents a deliberate modeling decision — a companion analysis including CCS-grouped diagnosis codes is planned.
+Despite these limitations, the model achieved a PR-AUC of 0.556. Given a class prevalence of 11%, a naive classifier would achieve a PR-AUC of approximately 0.112, making this result approximately 5x better than baseline and consistent with published benchmarks on this dataset.
